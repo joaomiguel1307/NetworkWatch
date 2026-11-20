@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1220">
+  <title>NetworkWatch | Monitoramento de rede</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="/"><span class="brand-mark">NW</span><span>Network<span class="accent">Watch</span><small>NETWORK MONITOR</small></span></a>
+      <span class="local-pill"><i></i> MONITOR LOCAL</span>
+    </header>
+    <main>
+      <section class="intro">
+        <div><p class="eyebrow">CENTRAL DE OPERAÇÕES</p><h1>Visibilidade da sua <span class="accent">rede.</span></h1>
+        <p class="subtitle">Descubra dispositivos ativos e acompanhe sua rede local em um só lugar.</p></div>
+        <button id="scanButton" class="scan-button"><span>↻</span> Iniciar varredura</button>
+      </section>
+      <section class="metrics">
+        <article class="metric"><span class="metric-label">DISPOSITIVOS CONHECIDOS</span><strong id="knownDevices">—</strong><small>Registrados no histórico</small></article>
+        <article class="metric"><span class="metric-label">VARREDURAS REGISTRADAS</span><strong id="scanCount">—</strong><small>Execuções concluídas</small></article>
+        <article class="metric"><span class="metric-label">ÚLTIMA VARREDURA</span><strong id="lastScan" class="last-scan">Ainda não realizada</strong><small id="networkLabel">Rede local aguardando</small></article>
+      </section>
+      <section class="panel">
+        <div class="panel-head"><div><p class="eyebrow">INVENTÁRIO</p><h2>Dispositivos detectados</h2></div><span id="deviceCount" class="count">0 dispositivos</span></div>
+        <div id="notice" class="notice">Clique em “Iniciar varredura” para procurar dispositivos na sua rede local.</div>
+        <div class="table-wrap"><table><thead><tr><th>ENDEREÇO IP</th><th>ENDEREÇO MAC</th><th>LATÊNCIA</th><th>ESTADO</th></tr></thead><tbody id="deviceTable"><tr><td colspan="4" class="empty">Nenhuma varredura realizada.</td></tr></tbody></table></div>
+      </section>
+      <p class="footnote">NetworkWatch · Projeto experimental de monitoramento local · Use somente em redes próprias ou autorizadas.</p>
+    </main>
+  </div>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
